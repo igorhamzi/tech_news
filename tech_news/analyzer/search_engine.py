@@ -14,10 +14,10 @@ def search_by_title(title):
 
 # Requisito 7
 def search_by_date(date):
-    date = datetime.date.fromisoformat(date).strftime("%d/%m/%Y")
+    date_formated = datetime.date.fromisoformat(date).strftime("%d/%m/%Y")
     try:
         news_search_date = search_news({"timestamp":
-                                       {"$eq": date}})
+                                       {"$eq": date_formated}})
         return return_filters(news_search_date)
     except ValueError:
         raise ValueError("Data inválida")
@@ -32,4 +32,6 @@ def search_by_tag(tag):
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
+    news_search_category = search_news({"category":
+                                       {"$regex": category, "$options": "i"}})
+    return return_filters(news_search_category)
