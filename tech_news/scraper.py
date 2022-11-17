@@ -1,6 +1,8 @@
 import requests
 import time
 from parsel import Selector
+from datetime import datetime
+# from tech_news.database import create_news
 
 
 def fetch(url):
@@ -37,9 +39,44 @@ def scrape_next_page_link(html_content):
 
 # Requisito 4
 def scrape_noticia(html_content):
-    """Seu código deve vir aqui"""
+    html = Selector(html_content)
+    url = html.css('link[rel=canonical]::attr(href)').get()
+    title = html.css('h1.entry-title::text').get().rstrip()
+    date = html.css('li.meta-date::text').get()
+    date_parsed = datetime.strptime(date, "%d/%m/%Y").strftime("%d/%m/%Y")
+    writer = html.css('a.url.fn.n::text').get()
+    comments_count = len(html.css('.comment-list li').getall())
+    summary = html.css('div.entry-content > p:first-of-type *::text').getall()
+    tags = html.css('a[rel=tag]::text').getall()
+    category = html.css('span.label::text').get()
+    news_report = {
+                    'url': url,
+                    'title': title,
+                    'timestamp': date_parsed,
+                    'writer': writer,
+                    'comments_count': comments_count,
+                    'summary': ''.join(summary).rstrip(),
+                    'tags': tags,
+                    'category': category
+                  }
+
+    return news_report
 
 
 # Requisito 5
-def get_tech_news(amount):
-    """Seu código deve vir aqui"""
+'''def get_tech_news(amount):
+    url = 'https://blog.betrybe.com/'
+    list_news = []
+
+    while len(list_news) < amount:
+        html = fetch(url)
+        for link in scrape_novidades(html):
+            if len(list_news) < amount:
+                news_report = scrape_noticia(fetch(link))
+                list_news.append(news_report)
+
+        url = scrape_next_page_link(html)
+
+    create_news(list_news)
+
+    return list_news'''
