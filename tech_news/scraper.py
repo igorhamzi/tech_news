@@ -2,7 +2,7 @@ import requests
 import time
 from parsel import Selector
 from datetime import datetime
-# from tech_news.database import create_news
+from tech_news.database import create_news
 
 
 def fetch(url):
@@ -37,7 +37,6 @@ def scrape_next_page_link(html_content):
     return next_link
 
 
-# Requisito 4
 def scrape_noticia(html_content):
     html = Selector(html_content)
     url = html.css('link[rel=canonical]::attr(href)').get()
@@ -63,8 +62,7 @@ def scrape_noticia(html_content):
     return news_report
 
 
-# Requisito 5
-'''def get_tech_news(amount):
+def get_tech_news(amount):
     url = 'https://blog.betrybe.com/'
     list_news = []
 
@@ -79,4 +77,4 @@ def scrape_noticia(html_content):
 
     create_news(list_news)
 
-    return list_news'''
+    return list_news
