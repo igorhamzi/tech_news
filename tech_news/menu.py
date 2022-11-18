@@ -1,7 +1,7 @@
 import sys
 
 
-def test2(options):
+def options2(options):
 
     if options == 3:
         return input("Digite a tag:")
@@ -11,7 +11,7 @@ def test2(options):
         return sys.stderr.write("Opção inválida")
 
 
-def test1(options):
+def options1(options):
     if options == 0:
         return input("Digite quantas notícias serão buscadas:")
     elif options == 1:
@@ -19,20 +19,16 @@ def test1(options):
     elif options == 2:
         return input("Digite a data no formato aaaa-mm-dd:")
     else:
-        return test2(options)
+        return options2(options)
 
 
 def analyzer_menu():
 
-    teste = ('''Selecione uma das opções a seguir:
-             0 - Popular o banco com notícias;
-             1 - Buscar notícias por título;
-             2 - Buscar notícias por data;
-             3 - Buscar notícias por tag;
-             4 - Buscar notícias por categoria;
-             5 - Listar top 5 notícias;
-             6 - Listar top 5 categorias;
-             7 - Sair.''')
+    options = input((
+        "Selecione uma das opções a seguir:\n 0 - Popular o banco com notícias"
+        ";\n 1 - Buscar notícias por título;\n 2 - Buscar notícias por data;\n"
+        " 3 - Buscar notícias por tag;\n 4 - Buscar notícias por categoria;\n "
+        "5 - Listar top 5 notícias;\n 6 - Listar top 5 categorias;\n 7 - Sair."
+    ))
 
-    options = input(teste)
-    return test1(options)
+    return options1(options)
