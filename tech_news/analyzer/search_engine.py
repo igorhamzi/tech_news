@@ -13,11 +13,12 @@ def search_by_title(title):
 
 
 def search_by_date(date):
-    date_formated: str = datetime.date.fromisoformat(date).strftime("%d/%m/%Y")
+    timestamp = datetime.strptime(date, "%Y-%m-%d").strftime("%d/%m/%Y")
     try:
-        news_search_date = search_news({"timestamp":
-                                       {"$eq": date_formated}})
-        return [(news["title"], news["url"]) for news in news_search_date]
+        return [
+            (news["title"], news["url"])
+            for news in search_news({"timestamp": timestamp})
+        ]
     except ValueError:
         raise ValueError("Data inválida")
 
