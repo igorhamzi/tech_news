@@ -4,10 +4,8 @@ from collections import Counter
 
 # Requisito 10
 def top_5_news():
-    list_news = list(
-        db.news.find(
-            {"comments_count":
-             {"$gt": 0}}).sort("comments_count", -1))
+    list_news = list(db.news.find({"comments_count":
+                                   {"$gt": 0}}).sort("comments_count", -1))
 
     result = [(news["title"], news["url"]) for news in list_news]
     return result
