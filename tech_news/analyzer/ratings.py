@@ -2,7 +2,6 @@ from tech_news.database import db
 from collections import Counter
 
 
-# Requisito 10
 def top_5_news():
     list_news = list(db.news.find({"comments_count":
                                    {"$gt": 0}}).sort("comments_count", -1))
@@ -11,7 +10,6 @@ def top_5_news():
     return result
 
 
-# Requisito 11
 def top_5_categories():
     list_categories = [news["category"]
                        for news
