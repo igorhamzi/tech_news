@@ -13,7 +13,7 @@ def search_by_title(title):
 
 
 def search_by_date(date):
-    date_formated = datetime.date.fromisoformat(date).strftime("%d/%m/%Y")
+    date_formated: str = datetime.date.fromisoformat(date).strftime("%d/%m/%Y")
     try:
         news_search_date = search_news({"timestamp":
                                        {"$eq": date_formated}})
