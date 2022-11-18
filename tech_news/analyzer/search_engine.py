@@ -1,5 +1,5 @@
 from tech_news.database import search_news
-import datetime
+from datetime import datetime
 
 
 def return_filters(filter):
@@ -13,11 +13,12 @@ def search_by_title(title):
 
 
 def search_by_date(date):
-    timestamp = datetime.strptime(date, "%Y-%m-%d").strftime("%d/%m/%Y")
     try:
+        date_format = datetime.strptime(date, "%Y-%m-%d").strftime("%d/%m/%Y")
         return [
             (news["title"], news["url"])
-            for news in search_news({"timestamp": timestamp})
+            for news
+            in search_news({"timestamp": date_format})
         ]
     except ValueError:
         raise ValueError("Data inválida")
