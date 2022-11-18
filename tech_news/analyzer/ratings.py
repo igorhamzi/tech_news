@@ -1,5 +1,4 @@
 from tech_news.database import db
-from search_engine import return_filters
 from collections import Counter
 
 
@@ -9,7 +8,9 @@ def top_5_news():
         db.news.find(
             {"comments_count":
              {"$gt": 0}}).sort("comments_count", -1))
-    return return_filters(list_news[:5])
+
+    result = [(news["title"], news["url"]) for news in list_news]
+    return result
 
 
 # Requisito 11
