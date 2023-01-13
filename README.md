@@ -1,13 +1,30 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# :information_source: TECH NEWS 👩🏽‍💻 (web scraping)
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Projeto realizado para consolidar os conhecimentos em Web screping (raspagem de dados) em Python.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+---
+
+## :rocket: Stack utilizada
+
+* **Back-end:** Python, MongoDB, PyMongo
+
+
+---
+
+## :link: O que foi desenvolvido
+
+Neste projeto foi desenvolvido a raspagem de dados do blog de noticias techs da Trybe: https://blog.betrybe.com/
+
+---
+
+## Habilidades desenvolvidas
+
+* Aplicar técnicas de raspagem de dados
+* Extrair dados de conteúdo HTML
+* Utilizar o terminal interativo do Python
+* Escrever módulos e importá-los
+* Armazenar os dados obtidos em um banco de dados
+
+--- 
+
+### Projeto realizado no módulo de Ciência da computação do Curso de Desenvolvimento WEB da TRYBE.
